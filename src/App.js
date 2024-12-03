@@ -10,15 +10,19 @@ function App() {
   const handleSubmit =()=>{
     // setStudent([...student, newStudent])
 
-    axios.post('http://localhost:3000/college-student/post',newStudent).then((res)=>{
-    console.log(res.data)
-    })
+    axios
+      .post("https://back-end-deployment-t2s1.onrender.com/college-student/post",newStudent)
+      .then((res) => {
+        console.log(res.data);
+      });
   }
   useEffect(()=>{
-    axios.get('http://localhost:3000/college-student').then((res)=>{
-    console.log(res.data)
-    setStudent(res.data)
-    })
+    axios
+      .get("https://back-end-deployment-t2s1.onrender.com/college-student")
+      .then((res) => {
+        console.log(res.data);
+        setStudent(res.data);
+      });
 
   },[])
   console.log(student)
